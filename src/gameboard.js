@@ -1,16 +1,16 @@
+
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 import { ship } from "./ship";
 
+const gameboard = () => {
 const ship1=ship(5);
 const ship2=ship(4);
 const ship3=ship(3);
 const ship4=ship(3);
 const ship5=ship(2);
 
-
-const gameboard = () => {
   const gameboardArray = [];
   const missedAttack = [];
   const succesAttack = [];

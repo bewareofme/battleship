@@ -65,8 +65,6 @@ const createGrid=(container,player)=>{
             if(player1.attack(player2,Number(coordinate))){createbutton.classList.add('success');
               if(player2.playergameboard.lost()){instruction.textContent='you won';createbutton.disabled=true;return}
             }
-            // console.log(player2.playergameboard.missedAttack)
-            // console.log(player2.playergameboard.succesAttack)
             player2.computerattack(player1)
             const computerattacked=player1.playergameboard.succesAttack;
             computerattacked.forEach((object)=>{
@@ -94,7 +92,7 @@ const createGrid=(container,player)=>{
     return container;
   }
   startbutton.addEventListener('click',()=>{
-    if(shipnumber<5)return
+    if(shipnumber<6)return
     const player2buttons=document.querySelector('.container_player2>.grid')
     const player2buttonsArray=Array.from(player2buttons.children)
     player2buttonsArray.forEach((button)=>{
