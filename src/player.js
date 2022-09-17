@@ -3,13 +3,14 @@
 import { gameboard } from "./gameboard";
 
 const player = (turn = 1) => {
+
   const playergameboard = gameboard();
   const attack = (enemy, coordinate) => {
-    enemy.playergameboard.receiveAttack(coordinate);
+    if(enemy.playergameboard.receiveAttack(coordinate))return true
+    return false
   };
   const computerattack = (enemy) => {
-    const coordinate = Math.floor(Math.random() * 98 + 1);
-    console.log(coordinate);
+    const coordinate = Math.floor(Math.random() * 99);
     if (
       enemy.playergameboard.missedAttack.find((cur) => cur === coordinate) ||
       enemy.playergameboard.succesAttack.find((cur) => cur === coordinate)
@@ -17,6 +18,6 @@ const player = (turn = 1) => {
       computerattack(enemy);
     enemy.playergameboard.receiveAttack(coordinate);
   };
-  return { playergameboard, attack, computerattack, turn };
+  return { playergameboard, attack, computerattack, turn};
 };
 export { player };

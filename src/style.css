@@ -1,0 +1,48 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.header_title{
+    display: flex;
+    justify-content: center;
+}
+.game_container{
+    height:80vh;
+    display: flex;
+    justify-content: space-around;
+}
+.grid{
+    display: flex;
+    width:300px;
+    height:300px;
+    flex-wrap: wrap;
+}
+.gridbutton{
+    width: 30px;
+    height:30px;
+    border: red solid 1px;
+    background-color: blue;
+
+}
+button:disabled{
+    background-color: red;
+}
+button:disabled.shipped{
+    background-color: yellow;
+}
+.instruction,.restartdiv,.startdiv{
+    display: flex;
+    justify-content: center;
+}
+button:disabled.success{
+    background-color: green;
+}
+button:disabled.shipattack{
+    border:5px solid green;
+    border-radius: 50%;
+}
+button:disabled.shipattackmissed{
+    border:5px solid red;
+    border-radius: 50%;
+}

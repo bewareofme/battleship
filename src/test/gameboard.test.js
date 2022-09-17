@@ -124,14 +124,23 @@ test("testing if game is lost", () => {
   };
   const shiptest = ship(3);
   const shiptest2 = ship(2);
+  const shiptest3 = ship(1);
+  const shiptest4 = ship(1);
+  const shiptest5 = ship(1);
   const gameboardtest = gameboard();
   gameboardtest.placeShip(shiptest, 44);
   gameboardtest.placeShip(shiptest2, 34);
+  gameboardtest.placeShip(shiptest3, 64);
+  gameboardtest.placeShip(shiptest4, 54);
+  gameboardtest.placeShip(shiptest5, 74);
   gameboardtest.receiveAttack(44);
   gameboardtest.receiveAttack(45);
   gameboardtest.receiveAttack(46);
   gameboardtest.receiveAttack(34);
   gameboardtest.receiveAttack(35);
+  gameboardtest.receiveAttack(64);
+  gameboardtest.receiveAttack(54);
+  gameboardtest.receiveAttack(74);
   expect(gameboardtest.lost()).toEqual(true);
 });
 

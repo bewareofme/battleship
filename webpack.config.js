@@ -1,17 +1,18 @@
 const path = require("path");
+// eslint-disable-next-line no-unused-vars
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
   entry: {
-    game: "./src/game.js",
+    DOM: "./src/DOM.js",
   },
   devtool: "inline-source-map",
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "Battleship",
-    }),
-  ],
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     title: "Battleship",
+  //   }),
+  // ],
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),

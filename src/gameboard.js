@@ -3,8 +3,11 @@
 /* eslint-disable no-plusplus */
 import { ship } from "./ship";
 
-const ship1=ship(1);
-const ship2=ship(1);
+const ship1=ship(5);
+const ship2=ship(4);
+const ship3=ship(3);
+const ship4=ship(3);
+const ship5=ship(2);
 
 
 const gameboard = () => {
@@ -12,7 +15,7 @@ const gameboard = () => {
   const missedAttack = [];
   const succesAttack = [];
   const isSunkArray = [];
-  const shipAmount = 2;
+  const shipAmount = 5;
 
   const checkhorizontalvalidity = (startcoordinate, len) => {
     if ((startcoordinate % 10) + len > 10) return false;
@@ -33,8 +36,8 @@ const gameboard = () => {
     const length = ship.len;
     if (ship.properties.position === "vertical") {
       if (checkverticalvalidity(startcoordinate, length)) {
-        for (let i = 0; i < length; i++) {
-          if (!checkoverlappingvalidity(startcoordinate)) return;
+        for (let i = 0; i < length; i++) {  
+          if (!checkoverlappingvalidity(startcoordinate)) return false;
           startcoordinate += 10;
         }
         startcoordinate -= 10 * length;
@@ -42,13 +45,13 @@ const gameboard = () => {
           gameboardArray.push({ coordinate: startcoordinate, ship });
           startcoordinate += 10;
         }
-        return;
+        return true;
       }
-      return;
+      return false;
     }
     if (checkhorizontalvalidity(startcoordinate, length)) {
       for (let i = 0; i < length; i++) {
-        if (!checkoverlappingvalidity(startcoordinate)) return;
+        if (!checkoverlappingvalidity(startcoordinate)) return false;
         startcoordinate++;
       }
       startcoordinate -= length;
@@ -56,7 +59,9 @@ const gameboard = () => {
         gameboardArray.push({ coordinate: startcoordinate, ship });
         startcoordinate++;
       }
+      return true
     }
+    return false
   };
 
   const receiveAttack = (coordinates) => {
@@ -68,9 +73,10 @@ const gameboard = () => {
       gameboardArray[index].ship.isHit(coordinates);
       if (gameboardArray[index].ship.isSunk())
         isSunkArray.push(gameboardArray[index].ship);
-      return;
+      return true;
     }
     missedAttack.push(coordinates);
+    return false;
   };
   const lost = () => {
     if (isSunkArray.length === shipAmount) return true;
@@ -84,7 +90,10 @@ const gameboard = () => {
     lost,
     succesAttack,
     ship1,
-    ship2
+    ship2,
+    ship3,
+    ship4,
+    ship5
   };
 };
 export { gameboard };
