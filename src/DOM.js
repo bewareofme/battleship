@@ -65,6 +65,8 @@ const createGrid=(container,player)=>{
             if(player1.attack(player2,Number(coordinate))){createbutton.classList.add('success');
               if(player2.playergameboard.lost()){instruction.textContent='you won';createbutton.disabled=true;return}
             }
+            console.log(player2.playergameboard.isSunkArray)
+            console.log(player1.playergameboard.isSunkArray)
             player2.computerattack(player1)
             const computerattacked=player1.playergameboard.succesAttack;
             computerattacked.forEach((object)=>{

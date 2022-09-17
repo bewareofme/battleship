@@ -93,7 +93,8 @@ const ship5=ship(2);
     ship2,
     ship3,
     ship4,
-    ship5
+    ship5,
+    isSunkArray
   };
 };
 export { gameboard };

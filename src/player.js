@@ -10,12 +10,12 @@ const player = (turn = 1) => {
     return false
   };
   const computerattack = (enemy) => {
-    const coordinate = Math.floor(Math.random() * 99);
-    if (
+    let coordinate = Math.floor(Math.random() * 99);
+    while (
       enemy.playergameboard.missedAttack.find((cur) => cur === coordinate) ||
       enemy.playergameboard.succesAttack.find((cur) => cur === coordinate)
     )
-      computerattack(enemy);
+      {coordinate = Math.floor(Math.random() * 99);}
     enemy.playergameboard.receiveAttack(coordinate);
   };
   return { playergameboard, attack, computerattack, turn};
