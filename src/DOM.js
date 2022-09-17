@@ -30,7 +30,7 @@ const computerplaceship=()=>{
     computership++;
   }
   }
-  console.log(player2.playergameboard.gameboardArray)
+  // console.log(player2.playergameboard.gameboardArray)
 }
 
 // eslint-disable-next-line no-shadow
@@ -63,10 +63,15 @@ const createGrid=(container,player)=>{
             }
             if(player===player1){
             if(player1.attack(player2,Number(coordinate))){createbutton.classList.add('success');
-              if(player2.playergameboard.lost()){instruction.textContent='you won';createbutton.disabled=true;return}
+              if(player2.playergameboard.lost()){instruction.textContent='you won';createbutton.disabled=true;
+              const gridbuttons=document.querySelectorAll('.container_player2>.grid>.gridbutton')
+              gridbuttons.forEach((button)=>{
+                // eslint-disable-next-line no-param-reassign
+                button.disabled=true;
+              })
+              return
             }
-            console.log(player2.playergameboard.isSunkArray)
-            console.log(player1.playergameboard.isSunkArray)
+            }
             player2.computerattack(player1)
             const computerattacked=player1.playergameboard.succesAttack;
             computerattacked.forEach((object)=>{

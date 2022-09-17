@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-console */
 import { gameboard } from "./gameboard";
